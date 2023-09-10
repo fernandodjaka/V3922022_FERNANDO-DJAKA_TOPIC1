@@ -1,0 +1,20 @@
+<?php
+function enkripsi() {
+    $input = $_POST["input"];
+
+    $key = array(
+        'a' => '!', 'i' => '$', 'u' => '&', 'e' => '*', 'o' => '^',
+        'A' => '?', 'I' => '}', 'U' => '`', 'E' => '~', 'O' => '+'
+    );
+
+    $enkripsi =  str_replace(array_keys($key), $key, $input);
+
+    echo "Kata yang di enkripsi adalah ", $input;
+    echo "<br><br>";
+    echo "Hasil enkripsi adalah", $enkripsi;
+
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    enkripsi();
+}
+?>
